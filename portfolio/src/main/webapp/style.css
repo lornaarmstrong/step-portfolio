@@ -25,33 +25,21 @@ footer {
     color: white;
 }
 
-.box-layout {
-    display: inline-block;
-    width: 400px;
-    height: 100px;
-    margin: 1px;
-    border: 1px;
-}
-
-h3 {
+.buttonText {
     text-align: center;
 }
 
-.button {
+.hyperlinked-button {
     border: none;
     text-align: center;
     cursor: pointer;
     padding: 5px 10px;
-    margin: 4px 2px;
+    margin: 4px 4px;
     border-radius: 10px;
 }
 
 .buttonBlue {background-color: #0e76a8; color:white;}
 .buttonGray {background-color: #e8e8e8; color:black;}
-
-left {
-    float: left;
-}
 
 img {
     margin: 5px 4px;
