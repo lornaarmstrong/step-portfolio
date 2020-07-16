@@ -7,3 +7,41 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+body {
+    background-color: white;
+    color: black;
+}
+
+h1 {
+    text-align: center;
+    background-color:lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.buttonText {
+    text-align: center;
+}
+
+.hyperlinked-button {
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 4px 4px;
+    border-radius: 10px;
+}
+
+.buttonBlue {background-color: #0e76a8; color:white;}
+.buttonGray {background-color: #e8e8e8; color:black;}
+
+img {
+    margin: 5px 4px;
+    float: right;
+}
