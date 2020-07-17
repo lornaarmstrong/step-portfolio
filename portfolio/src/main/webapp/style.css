@@ -1,7 +1,7 @@
 #content {
   margin-left: auto;
   margin-right: auto;
-  width: 650px;
+  width: 750px;
 }
 
 #greeting-container {
@@ -14,10 +14,34 @@ body {
 }
 
 h1 {
-  padding: 20px;
+  padding: 20px 20px 20px 0px;
   text-align: center;
   background-color:lightgray;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 100;
+  background-color: lightgray;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+h3 {
+  text-transform: uppercase;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul {
+  margin: 1px;
 }
 
 footer {
@@ -25,8 +49,11 @@ footer {
   padding: 2px;
   background-color: black;
   color: white;
+  position: fixed;
+  width: 750px;
 }
 
+/*Buttons at bottom of page*/
 .buttonText {
   text-align: center;
 }
@@ -40,13 +67,28 @@ footer {
   border-radius: 10px;
 }
 
-.buttonBlue {background-color: #0e76a8; color:white;}
-.buttonGray {background-color: #e8e8e8; color:black;}
+.buttonBlue {
+  background-color: #0e76a8; 
+  color:white;
+}
 
-img {
-  padding: 5px;
-  margin: 15px;
-  border: 2px outset;
+.buttonGray {
+  background-color: #e8e8e8; 
+  color:black;
+}
+
+/*Images - Profile and Non-Profile*/
+.profile {
+  padding: 5px 13px 5px 13px;
+  margin: 10px;
+  border: 2px outset; 
+  float: right;
+}
+
+.img-nonprofile {
+  padding: 0px;
+  margin: 0px;
+  border: 0px; 
   float: right;
 }
 
@@ -63,8 +105,24 @@ img {
 .about {
   margin: 5px;
   padding: 10px;
-  width: 57%;
+  width: 60%;
   display: inline-block;
+}
+
+/*Left Hand Side Text Section*/
+.left-content {
+  margin: 5px;
+  padding: 10px;
+  width: 30%;
+  float: left;
+}
+
+/*Right Hand Side Text Section*/
+.right-content {
+  width: 60%;
+  margin: 5px;
+  padding: 10px;
+  float: right;
 }
 
 .content-wrap {
