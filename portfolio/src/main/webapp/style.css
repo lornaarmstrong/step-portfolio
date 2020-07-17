@@ -9,39 +9,65 @@
 }
 
 body {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 h1 {
-    text-align: center;
-    background-color:lightgray;
-    font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  text-align: center;
+  background-color:lightgray;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 footer {
-    text-align: center;
-    background-color: black;
-    color: white;
+  text-align: center;
+  padding: 2px;
+  background-color: black;
+  color: white;
 }
 
 .buttonText {
-    text-align: center;
+  text-align: center;
 }
 
 .hyperlinked-button {
-    border: none;
-    text-align: center;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin: 4px 4px;
-    border-radius: 10px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .buttonBlue {background-color: #0e76a8; color:white;}
 .buttonGray {background-color: #e8e8e8; color:black;}
 
 img {
-    margin: 5px 4px;
-    float: right;
+  padding: 5px;
+  margin: 15px;
+  border: 2px outset;
+  float: right;
+}
+
+/*Banner across top of page*/
+.banner {
+  text-align: center;
+  padding: 1px 0 1px 0;
+  margin: 1px 0 1px 0;
+  background-color: black;
+  color: white;
+}
+
+/*About Section*/
+.about {
+  margin: 5px;
+  padding: 10px;
+  width: 57%;
+  display: inline-block;
+}
+
+.content-wrap {
+  width: 100%;
+  margin: 0 auto;
 }
