@@ -14,7 +14,9 @@ body {
 }
 
 h1 {
-  padding: 20px 20px 20px 0px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   text-align: center;
   background-color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
@@ -41,7 +43,10 @@ h3 {
 }
 
 ul {
-  margin: 1px 1px 10px 1px;
+  margin-top: 1px;
+  margin-right: 1px;
+  margin-bottom: 10px;
+  margin-left: 1px;
 }
 
 footer {
@@ -57,6 +62,7 @@ footer {
 
 /*Buttons at bottom of page*/
 .buttonText {
+  clear: both;
   text-align: center;
 }
 
@@ -137,7 +143,7 @@ footer {
   margin: 0 auto;
 }
 
-/*Enlarge when hovered over*/
+/*Enlarge image when hover*/
 .img-enlarge:hover{
    color: #414141; 
    opacity: 1;
@@ -146,19 +152,20 @@ footer {
   -ms-transition: all .3s ease-in;
   -o-transition: all .3s ease-in;
   transition: all .3s ease-in;
-  transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
+  transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  -webkit-transform: scale(1.6);
 }
 
-.content {
+/*Overlay on flag images*/
+.flag {
   position: relative;
   width: 30%;
   max-width: 100px;
   overflow: hidden;
 }
 
-.content .content-overlay {
+.flag .flag-overlay {
   background: rgba(0,0,0,0.6);
   position: absolute;
   height: 99%;
@@ -173,11 +180,11 @@ footer {
   transition: all 0.4s ease-in-out 0s;
 }
 
-.content:hover .content-overlay{
+.flag:hover .flag-overlay{
   opacity: 1;
 }
 
-.content-details {
+.flag-details {
   position: absolute;
   text-align: center;
   padding-left: 1px;
@@ -194,13 +201,13 @@ footer {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.content:hover .content-details{
+.flag:hover .flag-details{
   opacity: 1;
   top: 50%;
   left: 50%;
 }
 
-.content-details h3{
+.flag-details h3{
   color: white;
   font-weight: 700;
   font-size: 15px;
@@ -210,4 +217,9 @@ footer {
 
 .fadeIn-bottom{
   top: 80%;
+}
+
+/*Extra thick border for Images without Overlay*/
+.extra-border-img{
+  margin-top:12px;
 }
