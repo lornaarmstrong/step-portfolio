@@ -25,3 +25,30 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 */
+
+
+/**
+ * Fetches greeting from the server and adds it to the DOM.
+ */
+function getGreeting() {
+  console.log('Fetching a greeting.');
+  const responsePromise = fetch('/data');
+  responsePromise.then(handleResponse);
+}
+
+/**
+ * Handles response by converting it to text and passing the result to
+ * addQuoteToDom().
+ */
+function handleResponse(response) {
+  console.log('Handling the response.');
+  const textPromise = response.text();
+  textPromise.then(addGreetingToDom);
+}
+
+/** Adds the greeting to the DOM. */
+function addGreetingToDom(greeting) {
+  console.log('Adding greeting: '+greeting);
+  const greetingContainer = document.getElementById('greeting-container');
+  greetingContainer.innerText = greeting;
+}
