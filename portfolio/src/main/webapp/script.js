@@ -12,26 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/*** Code Given in Template, not in use
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
-*/
-
-
 /**
  * Fetches greeting from the server and adds it to the DOM.
  */
-function fetchAndShowGreeting() {
-  console.log('Fetching a greeting.');
+function fetchAndShowFavQuote() {
+  console.log('Fetching a favourite quote.');
   const responsePromise = fetch('/data');
   responsePromise.then(handleResponse);
 }
@@ -43,12 +28,12 @@ function fetchAndShowGreeting() {
 function handleResponse(response) {
   console.log('Handling the response.');
   const textPromise = response.text();
-  textPromise.then(addGreetingToDom);
+  textPromise.then(addFavQuoteToDom);
 }
 
-/** Adds the greeting to the DOM. */
-function addGreetingToDom(greeting) {
-  console.log('Adding greeting: '+ greeting);
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+/** Adds the quote to the DOM. */
+function addFavQuoteToDom(quote) {
+  console.log('Adding quote: ' + quote);
+  const quoteContainer = document.getElementById('quote-container');
+  quoteContainer.innerText = quote;
 }
