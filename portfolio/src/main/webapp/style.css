@@ -31,7 +31,6 @@ h2 {
   font-weight: 100;
   background-color: lightgray;
   font-family: "Times New Roman", Times, serif;
-  font-style: italic;
 }
 
 h3 {
@@ -227,3 +226,34 @@ footer {
 #comment-container{
     margin: 50px;
 }
+
+.label {
+  margin-bottom: 10px;
+}
+
+#userComment {
+  background-color: rgb(240, 240, 240);
+  padding: 0px 15px;
+}
+
+commentorName {
+  font-size: 12pt;
+  padding-top: 5px;
+}
+
+#commentText {
+  padding-bottom: 10px;
+}
+
+.commentSection {
+  margin-bottom: 75px;
+  width: 100%;
+}
+
+.comments {
+  position: center;
+}
+
+button:hover {
+  background-color: thistle;
+} 

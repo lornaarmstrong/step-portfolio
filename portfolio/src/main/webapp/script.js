@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-async function getComments(){
-  const response = await fetch('/data');
-  const comments = await response.json();
-  document.getElementById('comment-container').innerHTML = comments;
-  console.log(comments);
+window.onload = loadPage;
+
+function loadPage() {
+  getComments();
+}
+
+function getComments(){
+  fetch('/data').then(response => response.json()).then((comments) => {
+    const commentContainer = document.getElementById("comment-container");
+    var commentHTML = "";
+    for (var i = 0; i < comments.length; i++){
+        commentHTML += "<div id = \"userComment\">";
+        commentHTML += "<h4 id = \"commentorName\">" + comments[i][0] + " " + comments[i][1] + "</h4>";
+        commentHTML += "<p id = \"commentText\">" + comments[i][2] + "</p>";
+        commentHTML += "</div>"
+    }
+    commentContainer.innerHTML = commentHTML;
+  });
 }

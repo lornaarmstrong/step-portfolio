@@ -18,30 +18,43 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+//import com.google.sps.data.Comment;
 
 /** Servlet that returns some comments.*/
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  private List<String> comments;
-
-  @Override
-  public void init() {
-    comments = new ArrayList<>();
-    comments.add("Muy buen trabajo.");
-    comments.add("It seems like a really cool portfolio.");
-    comments.add("I like swing dance too!");
-  }
+  ArrayList<ArrayList<String>> messages = new ArrayList<>();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    Gson gson = new Gson();
-    String json = gson.toJson(comments);
     response.setContentType("application/json;");
+    String json = new Gson().toJson(messages);
     response.getWriter().println(json);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String fname = getParameter(request, "fname", "");
+    String lname = getParameter(request, "lname", "");
+    String userMessage = getParameter(request, "userMessage", "");
+
+    ArrayList<String> userComment = new ArrayList<>(Arrays.asList(fname, lname, userMessage));
+    messages.add(userComment);
+    response.sendRedirect("/index.html");
+  }
+
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
   }
 }
