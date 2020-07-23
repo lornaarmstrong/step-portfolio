@@ -17,4 +17,4 @@ async function getComments(){
   const comments = await response.json();
   document.getElementById('comment-container').innerHTML = comments;
   console.log(comments);
-} 
+}
