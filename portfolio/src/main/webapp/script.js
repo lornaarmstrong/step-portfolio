@@ -12,28 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Fetches greeting from the server and adds it to the DOM.
- */
-function fetchAndShowFavQuote() {
-  console.log('Fetching a favourite quote.');
-  const responsePromise = fetch('/data');
-  responsePromise.then(handleResponse);
-}
-
-/**
- * Handles response by converting it to text and passing the result to
- * addGreetingToDom().
- */
-function handleResponse(response) {
-  console.log('Handling the response.');
-  const textPromise = response.text();
-  textPromise.then(addFavQuoteToDom);
-}
-
-/** Adds the quote to the DOM. */
-function addFavQuoteToDom(quote) {
-  console.log('Adding quote: ' + quote);
-  const quoteContainer = document.getElementById('quote-container');
-  quoteContainer.innerText = quote;
-}
+async function getComments(){
+  const response = await fetch('/data');
+  const comments = await response.json();
+  document.getElementById('comment-container').innerHTML = comments;
+  console.log(comments);
+} 

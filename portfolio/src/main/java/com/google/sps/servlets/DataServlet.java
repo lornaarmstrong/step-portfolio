@@ -23,30 +23,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that returns some comments.*/
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  private List<String> favQuotes;
+  private List<String> comments;
 
   @Override
   public void init() {
-    favQuotes = new ArrayList<>();
-    favQuotes.add(
-      " \"And little by little, she found the courage for it all.\" -- JH Hard");
-    favQuotes.add(
-      "\"Be loud about the things that are important to you.\" -- Karen Walrond");
-    favQuotes.add(
-      "\"Le monde est un livre dont chaque pas nous ouvre une page.\""
-      + " -- Alphonse de Lamartine"
-      + "\n *** Translation: The world is a book - with every step, we open a page. ***");
+    comments = new ArrayList<>();
+    comments.add("Muy buen trabajo.");
+    comments.add("It seems like a really cool portfolio.");
+    comments.add("I like swing dance too!");
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    //return the ArrayList as JSON string
-    String json = new Gson().toJson(favQuotes);
-    response.setContentType("text/html;");
+    Gson gson = new Gson();
+    String json = gson.toJson(comments);
+    response.setContentType("application/json;");
     response.getWriter().println(json);
   }
 }
