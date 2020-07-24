@@ -231,21 +231,26 @@ footer {
   margin-bottom: 10px;
 }
 
-#userComment {
+#user-comment {
   background-color: rgb(240, 240, 240);
   padding: 0px 15px;
 }
 
-commentorName {
+#commentor-name {
   font-size: 12pt;
   padding-top: 5px;
+  color: black;
 }
 
-#commentText {
+#comment-text {
   padding-bottom: 10px;
 }
 
-.commentSection {
+#comment-date {
+  color: teal;
+}
+
+.comment-section {
   margin-bottom: 75px;
   width: 100%;
 }
@@ -255,5 +260,5 @@ commentorName {
 }
 
 button:hover {
-  background-color: thistle;
+  background-color: teal;
 } 

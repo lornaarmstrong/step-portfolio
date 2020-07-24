@@ -18,15 +18,21 @@ function loadPage() {
   getComments();
 }
 
+//TO DO Change the += format to use Node.appendChild()
 function getComments(){
-  fetch('/data').then(response => response.json()).then((comments) => {
+  fetch('/data').then(response => response.json()).then((messages) => {
     const commentContainer = document.getElementById("comment-container");
     var commentHTML = "";
-    for (var i = 0; i < comments.length; i++){
-        commentHTML += "<div id = \"userComment\">";
-        commentHTML += "<h4 id = \"commentorName\">" + comments[i][0] + " " + comments[i][1] + "</h4>";
-        commentHTML += "<p id = \"commentText\">" + comments[i][2] + "</p>";
+    if (messages.length == 0){
+       commentHTML += "<p>There are no comments yet.</p>"
+    } else {
+      for (var i = 0; i < messages.length; i++){
+        commentHTML += "<div id = \"user-comment\">";
+        commentHTML += "<h4 id = \"commentor-name\">" + messages[i]["firstName"] + " " + messages[i]["lastName"] + "</h4>";
+        commentHTML += "<h5 id = \"comment-date\">" + messages[i]["dateTime"] + "</h5>";
+        commentHTML += "<p id = \"comment-text\">" + messages[i]["message"] + "</p>";
         commentHTML += "</div>"
+      }
     }
     commentContainer.innerHTML = commentHTML;
   });
