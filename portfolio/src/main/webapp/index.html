@@ -9,7 +9,7 @@
   <body>
     <div id="content">
       <h1>Lorna Armstrong</h1>
-      <h2>Computer Science Undergraduate</h2>
+      <h2><i>Computer Science Undergraduate</i></h2>
       <div class="banner">PORTFOLIO</div>
       <section class="about">
         <h3>About Me</h3>
@@ -161,14 +161,23 @@
           <button class="hyperlinked-button buttonBlue">LinkedIn</button></a>
           <a href="https://github.com/lornaarmstrong" target="_blank">
           <button class="hyperlinked-button buttonGray">GitHub</button></a>
-
-          <!--WORKING WITH SERVER-->
-          <p>Click here to see the comments:</p>
-          <button onclick="getComments()">Show Comments</button>
-          <div id="comment-container"></div>
-        
         </div>
       </section>
+      <div class="center-content commentSection">
+        <h2><b>Comment Section</b></h2>
+        <form action="/data" method="POST">
+          <h4 class="label">First name:</label>
+          <input type="text" name="fname"><br>
+          <h4 class="label">Last name:</label>
+          <input type="text" name="lname">
+          <h4 class="label">Please leave a comment:</h4>
+          <textarea rows="10" cols="50" name="userMessage"></textarea>
+          <br/><br/>
+          <button id="submitComment" type="input">Submit</button>
+        </form>
+        <p>Here are the comments: </p>
+        <div id="comment-container"></div>
+      </div>
     </div>
     <footer><b>lornaarmstrong<b></footer>
   </body>
