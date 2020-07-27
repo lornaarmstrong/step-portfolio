@@ -39,6 +39,9 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    Integer numComments = Integer.parseInt(request.getParameter("quantity"));
+
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     Query query = new Query("Comment").addSort("dateTime", SortDirection.DESCENDING);
     PreparedQuery results = datastore.prepare(query);
@@ -46,18 +49,24 @@ public class DataServlet extends HttpServlet {
     List<Comment> comments = new ArrayList<>();
 
     for (Entity entity : results.asIterable()) { 
-        String userFirstName = (String) entity.getProperty("firstName");
-        String userLastName = (String) entity.getProperty("lastName");
-        String dateTime = (String) entity.getProperty("dateTime");
-        String userMessage = (String) entity.getProperty("message");
-
-        Comment userComment = new Comment(userFirstName, userLastName, dateTime, userMessage);
-        comments.add(userComment);
+      String userFirstName = (String) entity.getProperty("firstName");
+      String userLastName = (String) entity.getProperty("lastName");
+      String dateTime = (String) entity.getProperty("dateTime");
+      String userMessage = (String) entity.getProperty("message");
+      Comment userComment = new Comment(userFirstName, userLastName, dateTime, userMessage);
+      comments.add(userComment);
     }
     
     response.setContentType("application/json;");
     Gson gson = new Gson();
-    response.getWriter().println(gson.toJson(comments));
+
+    //Print number of comments depending on numComments value
+    if (numComments >= comments.size() || numComments == (-1)){
+      response.getWriter().println(gson.toJson(comments));
+    } else {
+      response.getWriter().println(gson.toJson(comments.subList(0,numComments)));
+    }
+
   }
 
   @Override
@@ -68,21 +77,19 @@ public class DataServlet extends HttpServlet {
     String userLastName = getParameter(request, "userLastName", /* defaultValue= */ "");
     String userMessage = getParameter(request, "userMessage", /* defaultValue= */ "");
 
-    //Get current date and time and convert to String
-
-    //TO DO Add an hour for BST onto comment times to make them correct
-    LocalDateTime dateTime = LocalDateTime.now();
-    DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-    String dateTimeFormatted = dateTime.format(format);
-    
-    commentEntity.setProperty("firstName", userFirstName);
-    commentEntity.setProperty("lastName", userLastName);
-    commentEntity.setProperty("dateTime", dateTimeFormatted);
-    commentEntity.setProperty("message", userMessage);
-
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(commentEntity);
-    response.sendRedirect("/index.html");
+    // TODO(lornaarmstrong) Fix this issue - 'blank' comments are still posted
+    if (userMessage != "" && userFirstName != "" && userLastName != "") {
+      LocalDateTime dateTime = LocalDateTime.now();
+      DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+      String dateTimeFormatted = dateTime.format(format);
+      commentEntity.setProperty("firstName", userFirstName);
+      commentEntity.setProperty("lastName", userLastName);
+      commentEntity.setProperty("dateTime", dateTimeFormatted);
+      commentEntity.setProperty("message", userMessage);
+      DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+      datastore.put(commentEntity);
+    }
+    response.sendRedirect("/index.html#commentArea");
   }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {

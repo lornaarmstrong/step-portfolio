@@ -65,7 +65,7 @@ footer {
   text-align: center;
 }
 
-.hyperlinked-button {
+.hyperlinked-button, .commentButton {
   border: none;
   text-align: center;
   cursor: pointer;
@@ -82,6 +82,11 @@ footer {
 .buttonGray {
   background-color: #E8E8E8; 
   color: black;
+}
+
+.buttonRed {
+  background-color: rgb(199, 77, 77); 
+  color: white;
 }
 
 /*Images - Profile and Non-Profile*/
@@ -227,10 +232,6 @@ footer {
     margin: 50px;
 }
 
-.label {
-  margin-bottom: 10px;
-}
-
 #user-comment {
   background-color: rgb(240, 240, 240);
   padding: 0px 15px;
@@ -259,6 +260,9 @@ footer {
   position: center;
 }
 
-button:hover {
-  background-color: teal;
-} 
+.label {
+  color: black;
+  font: bold;
+  padding: 5px;
+  margin: 2px;
+}

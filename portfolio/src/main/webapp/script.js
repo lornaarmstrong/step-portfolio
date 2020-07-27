@@ -20,20 +20,27 @@ function loadPage() {
 
 //TO DO Change the += format to use Node.appendChild()
 function getComments(){
-  fetch('/data').then(response => response.json()).then((messages) => {
+  var quantity = document.getElementById('commentCount');
+  const request = new Request('/data?quantity='+quantity.value, {method:'GET'});
+  fetch(request).then(response => response.json()).then((messages) => {
     const commentContainer = document.getElementById("comment-container");
     var commentHTML = "";
     if (messages.length == 0){
-       commentHTML += "<p>There are no comments yet.</p>"
+       commentHTML += "<p>There are no comments yet. Why not post one yourself?</p>"
     } else {
       for (var i = 0; i < messages.length; i++){
-        commentHTML += "<div id = \"user-comment\">";
-        commentHTML += "<h4 id = \"commentor-name\">" + messages[i]["firstName"] + " " + messages[i]["lastName"] + "</h4>";
-        commentHTML += "<h5 id = \"comment-date\">" + messages[i]["dateTime"] + "</h5>";
-        commentHTML += "<p id = \"comment-text\">" + messages[i]["message"] + "</p>";
-        commentHTML += "</div>"
+        commentHTML = commentHTML.concat("<div id = \"user-comment\">");
+        commentHTML = commentHTML.concat("<h4 id = \"commentor-name\">" + messages[i]["firstName"] + " " + messages[i]["lastName"] + "</h4>");
+        commentHTML = commentHTML.concat("<h5 id = \"comment-date\">" + messages[i]["dateTime"] + "</h5>");
+        commentHTML = commentHTML.concat("<p id = \"comment-text\">" + messages[i]["message"] + "</p>");
+        commentHTML = commentHTML.concat("</div>");
       }
     }
     commentContainer.innerHTML = commentHTML;
   });
+}
+
+function deleteComments() {
+  const request = new Request('/delete-data', {method: 'POST'}); 
+  fetch(request).then(getComments());
 }
