@@ -33,7 +33,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import com.google.gson.Gson;
 
-@WebServlet("/delete-data")
+@WebServlet("/delete-all-data")
 public class DeleteCommentServlet extends HttpServlet {
   
   //Deletes all comments

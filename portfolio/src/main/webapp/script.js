@@ -18,10 +18,9 @@ function loadPage() {
   getComments();
 }
 
-//TO DO Change the += format to use Node.appendChild()
 function getComments(){
   var quantity = document.getElementById('commentCount');
-  const request = new Request('/data?quantity='+quantity.value, {method:'GET'});
+  const request = new Request('/data?quantity=' + quantity.value, {method:'GET'});
   fetch(request).then(response => response.json()).then((messages) => {
     const commentContainer = document.getElementById("comment-container");
     var commentHTML = "";
@@ -41,6 +40,6 @@ function getComments(){
 }
 
 function deleteComments() {
-  const request = new Request('/delete-data', {method: 'POST'}); 
+  const request = new Request('/delete-all-data', {method: 'POST'}); 
   fetch(request).then(getComments());
 }

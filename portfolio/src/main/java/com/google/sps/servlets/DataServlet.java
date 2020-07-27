@@ -64,7 +64,7 @@ public class DataServlet extends HttpServlet {
     if (numComments >= comments.size() || numComments == (-1)){
       response.getWriter().println(gson.toJson(comments));
     } else {
-      response.getWriter().println(gson.toJson(comments.subList(0,numComments)));
+      response.getWriter().println(gson.toJson(comments.subList(0, numComments)));
     }
 
   }
@@ -78,7 +78,7 @@ public class DataServlet extends HttpServlet {
     String userMessage = getParameter(request, "userMessage", /* defaultValue= */ "");
 
     // TODO(lornaarmstrong) Fix this issue - 'blank' comments are still posted
-    if (userMessage != "" && userFirstName != "" && userLastName != "") {
+    if ( (!(userMessage.isEmpty())) && (!(userFirstName.isEmpty())) &&(!(userLastName.isEmpty()))) {
       LocalDateTime dateTime = LocalDateTime.now();
       DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
       String dateTimeFormatted = dateTime.format(format);
