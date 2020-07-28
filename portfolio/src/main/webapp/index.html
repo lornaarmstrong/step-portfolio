@@ -11,6 +11,7 @@
       <h1>Lorna Armstrong</h1>
       <h2><i>Computer Science Undergraduate</i></h2>
       <div class="banner">PORTFOLIO</div>
+
       <section class="about">
         <h3>About Me</h3>
         <p>My name is Lorna Armstrong and I am from Middlesbrough, England.
@@ -163,19 +164,29 @@
           <button class="hyperlinked-button buttonGray">GitHub</button></a>
         </div>
       </section>
-      <div class="center-content commentSection">
+      <div id="commentArea" class="center-content commentSection">
         <h2><b>Comment Section</b></h2>
         <form action="/data" method="POST">
-          <h4 class="label">First name:</label>
-          <input type="text" name="userFirstName"><br>
-          <h4 class="label">Last name:</label>
-          <input type="text" name="userLastName">
-          <h4 class="label">Please leave a comment:</h4>
+        <!-- Ask user how many comments they want to see -->
+          <p>How many comments do you want to see?</p>
+          <select name="commentCount" id="commentCount" onchange="getComments()">
+              <option value="1">1</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="-1">All</option>
+          </select>
+          <br></br>
+          <label class="label">First name:</label>
+          <input type="text" name="userFirstName"><br></br>
+          <label class="label">Last name:</label>
+          <input type="text" name="userLastName"><br></br>
+          <label class="label">Please leave a comment:</label><br></br>
           <textarea rows="10" cols="50" name="userMessage"></textarea>
           <br/><br/>
-          <button id="submitComment" type="input">Submit</button>
+          <button id="submitComment" class = "commentButton" type="input">Submit</button>
         </form>
-        <p>Here are the comments: </p>
+        <button id="removeAllComments" class = "commentButton buttonRed" onclick="deleteComments()">Delete All Comments</button>
         <div id="comment-container"></div>
       </div>
     </div>
