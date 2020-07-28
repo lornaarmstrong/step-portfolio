@@ -12,6 +12,12 @@
       <h2><i>Computer Science Undergraduate</i></h2>
       <div class="banner">PORTFOLIO</div>
 
+      <!-- Navigation Bar -->
+      <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="education.html">Education</a>
+      </div>
+
       <section class="about">
         <h3>About Me</h3>
         <p>My name is Lorna Armstrong and I am from Middlesbrough, England.
@@ -178,12 +184,11 @@
           </select>
           <br></br>
           <label class="label">First name:</label>
-          <input type="text" name="userFirstName"><br></br>
+          <input type="text" name="userFirstName"><br><br>
           <label class="label">Last name:</label>
-          <input type="text" name="userLastName"><br></br>
-          <label class="label">Please leave a comment:</label><br></br>
-          <textarea rows="10" cols="50" name="userMessage"></textarea>
-          <br/><br/>
+          <input type="text" name="userLastName"><br><br>
+          <label class="label">Please leave a comment:</label><br><br>
+          <textarea rows="10" cols="50" name="userMessage"></textarea><br>
           <button id="submitComment" class = "commentButton" type="input">Submit</button>
         </form>
         <button id="removeAllComments" class = "commentButton buttonRed" onclick="deleteComments()">Delete All Comments</button>
