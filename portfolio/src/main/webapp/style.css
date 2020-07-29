@@ -41,6 +41,36 @@ h3 {
   margin-bottom: 5px;
 }
 
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: teal;
+  color: white;
+}
+
 ul {
   margin-top: 1px;
   margin-right: 1px;
@@ -109,7 +139,7 @@ footer {
   text-align: center;
   padding: 1px 0 1px 0;
   margin: 1px 0 1px 0;
-  background-color: black;
+  background-color: rgb(163, 214, 207);
   color: white;
 }
 
@@ -265,4 +295,42 @@ footer {
   font: bold;
   padding: 5px;
   margin: 2px;
+}
+
+/*Education page*/
+.uniOfEdinburgh {
+  background-color: #E3BABC;
+  border-radius: 10px;
+}
+
+.queenElizabeth {
+  background-color: #C4B8DB;
+  border-radius: 10px;
+}
+
+.staindrop {
+  background-color: #B5D1EB;
+  border-radius: 10px;
+}
+
+.school-content {
+  margin: 20px;
+  padding: 20px;
+}
+
+.img-circular {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  width: 250px;
+  height: 250px;
+  border: solid;
+  position: block;
+  padding: 10px;
+  margin: 40px;
+}
+
+#regions_div {
+  border: dotted 3px black;
 }

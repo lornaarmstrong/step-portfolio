@@ -25,7 +25,7 @@ function getComments(){
     const commentContainer = document.getElementById("comment-container");
     var commentHTML = "";
     if (messages.length == 0){
-       commentHTML += "<p>There are no comments yet. Why not post one yourself?</p>"
+       commentHTML = commentHTML.concat("<p>There are no comments yet. Why not post one yourself?</p>");
     } else {
       for (var i = 0; i < messages.length; i++){
         commentHTML = commentHTML.concat("<div id = \"user-comment\">");
@@ -42,4 +42,36 @@ function getComments(){
 function deleteComments() {
   const request = new Request('/delete-all-data', {method: 'POST'}); 
   fetch(request).then(getComments());
+}
+
+//CHARTS
+google.charts.load('current', {'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+'mapsApiKey': 'AIzaSyDZkYUP3u-5QT0BJHG9Cr1a7jq80yCHrcQ'
+});
+  google.charts.setOnLoadCallback(drawRegionsMap);
+
+  function drawRegionsMap() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Country'); 
+    data.addColumn('number', 'Value');
+    data.addColumn('number', 'Size');
+    data.addColumn({type:'string', role:'tooltip'});
+
+    data.addRows([["Edinburgh",1,100,"University of Edinburgh"],
+    ["Darlington",2,100,"Queen Elizabeth Sixth Form College"],
+    ["Staindrop",3,100,"Staindrop Academy"]
+    ]);
+
+    var options = {
+        region: 'GB',
+        displayMode: 'markers',
+        colorAxis: {colors: ['#b85357', '#8774ab', '#327fc7']},
+        legend: 'none'
+    };
+
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+    chart.draw(data, options);
 }
