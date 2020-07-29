@@ -88,7 +88,7 @@ public class DataServlet extends HttpServlet {
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(commentEntity);
     }
-    response.sendRedirect("/index.html#commentArea");
+    response.sendRedirect("/feedback.html#commentArea");
   }
 
   private String getParameter(HttpServletRequest request, String name, String defaultValue) {

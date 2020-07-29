@@ -18,6 +18,19 @@ function loadPage() {
   getComments();
 }
 
+function submitUserForm() {
+    var response = grecaptcha.getResponse();
+    if(response.length == 0) {
+        document.getElementById("g-recaptcha-error").innerHTML = "This field is required";
+        return false;
+    }
+    return true;
+}
+
+function verifyCaptcha() {
+    document.getElementById("g-recaptcha-error").innerHTML = "";
+}
+
 function getComments(){
   var quantity = document.getElementById('commentCount');
   const request = new Request('/data?quantity=' + quantity.value, {method:'GET'});
@@ -46,9 +59,7 @@ function deleteComments() {
 
 //CHARTS
 google.charts.load('current', {'packages':['geochart'],
-        // Note: you will need to get a mapsApiKey for your project.
-        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-'mapsApiKey': 'AIzaSyDZkYUP3u-5QT0BJHG9Cr1a7jq80yCHrcQ'
+'mapsApiKey': 'AIzaSyCP-FXbugyYntkSsiE4hQqIAEKh4Li8_ow'
 });
   google.charts.setOnLoadCallback(drawRegionsMap);
 
@@ -60,9 +71,10 @@ google.charts.load('current', {'packages':['geochart'],
     data.addColumn('number', 'Size');
     data.addColumn({type:'string', role:'tooltip'});
 
-    data.addRows([["Edinburgh",1,100,"University of Edinburgh"],
-    ["Darlington",2,100,"Queen Elizabeth Sixth Form College"],
-    ["Staindrop",3,100,"Staindrop Academy"]
+    data.addRows([
+      ["Edinburgh", 1, 70, "University of Edinburgh"],
+      ["Darlington", 2, 70, "Queen Elizabeth Sixth Form College"],
+      ["Staindrop", 3, 70, "Staindrop Academy"]
     ]);
 
     var options = {
