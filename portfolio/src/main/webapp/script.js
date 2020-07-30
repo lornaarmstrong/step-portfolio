@@ -57,7 +57,7 @@ function deleteComments() {
   fetch(request).then(getComments());
 }
 
-//CHARTS
+// CHARTS
 google.charts.load('current', {'packages':['geochart'],
 'mapsApiKey': 'AIzaSyCP-FXbugyYntkSsiE4hQqIAEKh4Li8_ow'
 });
