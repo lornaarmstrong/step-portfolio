@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Feedback - Lorna Armstrong</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <h1>Lorna Armstrong</h1>
+      <h2><i>Computer Science Undergraduate</i></h2>
+      <div class="banner">FEEDBACK</div>
+
+      <!-- Navigation Bar -->
+      <div class="top-navigation-bar">
+        <a href="index.html">Home</a>
+        <a href="education.html">Education</a>
+        <a class="active" href="feedback.html">Feedback</a>
+      </div>
+
+      <h3>Feedback</h3>
+      <p>Welcome to the Feedback section of my portfolio. Feel free to leave a comment
+          below, to offer feedback, opinions or information about yourself!
+      </p>
+
+      <div class="add-comment-box">
+      <h3>Add a Comment</h3>
+      <form action="/data" method="POST" onsubmit="return submitUserForm();">
+        <div class="commentBox">
+          <label class="label">First name:</label>
+          <input type="text" name="userFirstName" placeholder="Your first name..."><br><br>
+          <label class="label" >Last name:</label>
+          <input type="text" name="userLastName" placeholder="Your surname..."><br><br>
+          <label class="label" >Please leave a comment:</label><br><br>
+          <textarea rows="10" cols="50" name="userMessage" placeholder="Please leave some feedback.."></textarea><br>
+
+          <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq" 
+          data-callback="verifyCaptcha"></div>
+          <div id="g-recaptcha-error"></div>
+
+          <button id="submitComment" class = "comment-submit-button" type="input">Submit</button>
+        </div>
+      </form>
+      </div>
+
+      <div class="view-comments-box">
+      <h3>View Comments</h3>
+      <p>How many comments do you want to see?</p>
+      <select name="commentCount" id="commentCount" onchange="getComments()">
+        <option value="0">-</option>
+        <option value="1">1</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="-1">All</option>
+      </select>
+      </div>
+      <button id="removeAllComments" class = "commentButton buttonRed" 
+      onclick="deleteComments()">Delete All Comments</button>
+        <div id="comment-container"></div>
+      </div>
+     
+    </div>
+    <footer><b>lornaarmstrong<b></footer>
+  </body>
+</html>
