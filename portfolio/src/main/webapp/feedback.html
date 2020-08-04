@@ -19,31 +19,40 @@
         <a href="education.html">Education</a>
         <a class="active" href="feedback.html">Feedback</a>
       </div>
-
-      <h3>Feedback</h3>
-      <p>Welcome to the Feedback section of my portfolio. Feel free to leave a comment
+      <section class="feedback">
+        <h3>Feedback</h3>
+        <p>Welcome to the Feedback section of my portfolio. Feel free to leave a comment
           below, to offer feedback, opinions or information about yourself!
-      </p>
+        </p> </section>
 
-      <div class="add-comment-box">
-      <h3>Add a Comment</h3>
-      <form action="/data" method="POST" onsubmit="return submitUserForm();">
-        <div class="commentBox">
-          <label class="label">First name:</label>
-          <input type="text" name="userFirstName" placeholder="Your first name..."><br><br>
-          <label class="label" >Last name:</label>
-          <input type="text" name="userLastName" placeholder="Your surname..."><br><br>
-          <label class="label" >Please leave a comment:</label><br><br>
-          <textarea rows="10" cols="50" name="userMessage" placeholder="Please leave some feedback.."></textarea><br>
-
-          <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq" 
-          data-callback="verifyCaptcha"></div>
-          <div id="g-recaptcha-error"></div>
-
-          <button id="submitComment" class = "comment-submit-button" type="input">Submit</button>
+        <div class="add-comment-box">
+        <h3>Add a Comment</h3>
+        <form action="/data" method="POST" onsubmit="return submitUserForm();">
+          <div class="commentBox">
+            <label class="label">First name:</label>
+            <input type="text" name="userFirstName" placeholder="Your first name..."><br><br>
+            <label class="label" >Last name:</label>
+            <input type="text" name="userLastName" placeholder="Your surname..."><br><br>
+            <label class="label" >Please leave a comment:</label><br><br>
+            <textarea rows="10" cols="50" name="userMessage" placeholder="Please leave some feedback.."></textarea><br>
+            <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq" 
+            data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
+            <button id="submitComment" class = "comment-submit-button" type="input">Submit</button>
+          </div>
+        </form>
         </div>
-      </form>
-      </div>
+
+    <!-- TODO (lornaarmstrong) Implement the language choice for comments
+       <div class="languages-comments-box">
+        <h3>View Comments</h3>
+        <p>How many comments do you want to see?</p>
+        <select name="languageChoice" id="languageChoice" onchange="getComments()">
+          <option value="ar">Arabic<option>
+          <option value="en">English</option>
+          <option value="fr">French<option>
+        </select>
+      </div> -->
 
       <div class="view-comments-box">
       <h3>View Comments</h3>

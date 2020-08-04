@@ -1,7 +1,9 @@
 #content {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10px;
   width: 750px;
+  background-color: white;
 }
 
 #greeting-container {
@@ -9,7 +11,7 @@
 }
 
 body {
-  background-color: white;
+  background-color: #8fcdcf;
   color: black;
 }
 
@@ -41,7 +43,6 @@ h3 {
   margin-bottom: 5px;
 }
 
-/* Add a black background color to the top navigation */
 .top-navigation-bar {
   background-color: rgb(0, 0, 0);
   overflow: hidden;
@@ -49,7 +50,6 @@ h3 {
   margin: 10px;
 }
 
-/* Style the links inside the navigation bar */
 .top-navigation-bar a {
   float: left;
   color: #f2f2f2;
@@ -65,7 +65,7 @@ h3 {
 }
 
 .top-navigation-bar a.active {
-  background-color: teal;
+  background-color: #27807f;
   color: white;
 }
 
@@ -108,42 +108,30 @@ footer {
 }
 
 .buttonGray {
-  background-color: #E8E8E8; 
+  background-color: #D3D3D3FF; 
   color: black;
 }
 
 .buttonRed {
-  background-color: rgb(199, 77, 77); 
+  background-color: #C74D4D; 
   color: white;
-}
-
-/*Images - Profile and Non-Profile*/
-.profile {
-  padding-top: 5px;
-  padding-right: 13px;
-  padding-bottom: 5px;
-  padding-left: 13px;
-  margin: 10px;
-  border: 2px outset; 
-  float: right;
 }
 
 .img-nonprofile {
   float: right;
 }
 
-/*Banner across top of page*/
 .banner {
     text-align: center;
     padding: 10px 0 10px 0;
     margin: 5px 0 5px 0;
-    background-color: rgb(39, 128, 127);
+    background-color: #27807F;
     color: white;
     font-style: bold;
     font-size: 16px;
 }
 
-/*About Section*/
+/*Formatting for main text in each section*/
 .about {
   margin: 5px;
   padding: 10px;
@@ -151,7 +139,13 @@ footer {
   display: inline-block;
 }
 
-/*Left Hand Side Text Section*/
+.education, .feedback {
+  margin: 5px;
+  padding: 10px;
+  width: 96%;
+  display: inline-block;
+}
+
 .left-content {
   margin: 5px;
   padding: 10px;
@@ -159,7 +153,6 @@ footer {
   float: left;
 }
 
-/*Right Hand Side Text Section*/
 .right-content {
   width: 60%;
   margin: 5px;
@@ -167,7 +160,7 @@ footer {
   float: right;
 }
 
-.center-content{
+.center-content {
   width: 100%;
   padding: 10px;
 }
@@ -177,7 +170,6 @@ footer {
   margin: 0 auto;
 }
 
-/*Enlarge image when hover*/
 .img-enlarge:hover{
    color: #414141; 
    opacity: 1;
@@ -200,7 +192,7 @@ footer {
 }
 
 .flag .flag-overlay {
-  background: rgba(0,0,0,0.6);
+  background: #00000099;
   position: absolute;
   height: 99%;
   width: 120px;
@@ -259,22 +251,22 @@ footer {
 }
 
 /* Add Comments section */
+.add-comment-box, .view-comments-box {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+}
 
 .add-comment-box {
-  border-radius: 10px;
-  background-color: #dddddd;
-  padding: 20px;
+  background-color: #D3D3D3FF;
 }
 
 .view-comments-box {
-border-radius: 10px;
-  background-color: rgb(193, 226, 226);
-  padding: 20px;
-  margin: 20px 0px 20px 0px;
+  background-color: #C1E2E2;
 }
 
 .comment-submit-button {
-  background-color: rgb(85, 163, 163);
+  background-color: #27807F;
   border-radius: 10px;
   color: white;
   padding: 5px;
@@ -288,13 +280,13 @@ border-radius: 10px;
 
 input[type=text], select, textarea {
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #CCC;
   border-radius: 4px;
   background-color: white;
 }
 
 #user-comment {
-  background-color: rgb(240, 240, 240);
+  background-color: #CCC;
   padding: 0px 15px;
 }
 
@@ -309,7 +301,7 @@ input[type=text], select, textarea {
 }
 
 #comment-date {
-  color: teal;
+  color: #27807F;
 }
 
 .comment-section {
@@ -322,7 +314,7 @@ input[type=text], select, textarea {
 }
 
 .label {
-  color: black;
+  color: #000000;
   font: bold;
   padding: 5px;
   margin: 2px;
@@ -332,6 +324,7 @@ input[type=text], select, textarea {
 .uni-of-edinburgh {
   background-color: #E3BABC;
   border-radius: 10px;
+  margin: 10px;
 }
 
 .queen-elizabeth {
@@ -349,19 +342,29 @@ input[type=text], select, textarea {
   padding: 20px;
 }
 
-.img-circular {
+.img-circular, .img-profile {
   border-top-left-radius: 50% 50%;
   border-top-right-radius: 50% 50%;
   border-bottom-right-radius: 50% 50%;
   border-bottom-left-radius: 50% 50%;
-  width: 250px;
-  height: 250px;
   border: solid;
   position: block;
   padding: 10px;
+}
+
+.img-circular {
+  width: 250px;
+  height: 250px;
   margin: 40px;
 }
 
+.img-profile {
+  width: 200px;
+  height: 200px;
+  margin: 5px 20px 5px 20px;
+}
+
 #regions_div {
-  border: dotted 3px black;
+  border: dotted 3px #000000;
+  width: 95%
 }
