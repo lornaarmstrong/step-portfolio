@@ -15,13 +15,23 @@
 window.onload = loadPage;
 
 function loadPage() {
+  getChartAPI();
   getComments();
+}
+
+async function getChartAPI() {
+  var APIScript = document.createElement("script");
+  APIScript.type = "text/javascript";
+  APIScript.src = "https://maps.googleapis.com/maps/api/js?key="+APIkey.APIKey;
+  var chartAPIFile = document.getElementById("APIFile");
+  var head = document.getElementsByTagName("header")[0];
+  head.insertBefore(APIScript, chartAPIFile.nextSibling);
 }
 
 function submitUserForm() {
     var response = grecaptcha.getResponse();
     if(response.length == 0) {
-        document.getElementById("g-recaptcha-error").innerHTML = "This field is required";
+        document.getElementById("g-recaptcha-error").innerHTML = "This field is required.";
         return false;
     }
     return true;
@@ -31,13 +41,18 @@ function verifyCaptcha() {
     document.getElementById("g-recaptcha-error").innerHTML = "";
 }
 
+//TODO (lornaarmstrong) Implement this function
+function requestTranslation(){
+    
+}
+
 function getComments(){
   var quantity = document.getElementById('commentCount');
   const request = new Request('/data?quantity=' + quantity.value, {method:'GET'});
   fetch(request).then(response => response.json()).then((messages) => {
     const commentContainer = document.getElementById("comment-container");
     var commentHTML = "";
-    if (messages.length == 0){
+    if (messages.length == 0 && quantity.value != 0){
        commentHTML = commentHTML.concat("<p>There are no comments yet. Why not post one yourself?</p>");
     } else {
       for (var i = 0; i < messages.length; i++){
@@ -59,7 +74,7 @@ function deleteComments() {
 
 // CHARTS
 google.charts.load('current', {'packages':['geochart'],
-'mapsApiKey': 'AIzaSyCP-FXbugyYntkSsiE4hQqIAEKh4Li8_ow'
+'mapsApiKey': 'AIzaSyCP-FXbugyYntkSsiE4hQqIAEKh4Li8_ow' 
 });
   google.charts.setOnLoadCallback(drawRegionsMap);
 
