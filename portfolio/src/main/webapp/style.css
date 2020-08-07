@@ -102,6 +102,10 @@ footer {
   border-radius: 10px;
 }
 
+.commentButton {
+  visibility: hidden;
+}
+
 .buttonBlue {
   background-color: #0E76A8; 
   color: white;
@@ -115,6 +119,14 @@ footer {
 .buttonRed {
   background-color: #C74D4D; 
   color: white;
+}
+
+.education-button {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin: 0px 100px 0px 80px;
+  border-radius: 10px;
 }
 
 .img-nonprofile {
@@ -323,6 +335,12 @@ input[type=text], select, textarea {
   margin: 2px;
 }
 
+.admin-area {
+  border: 2px black dotted;
+  padding: 10px;
+  margin: 20px;
+}
+
 /*Education page*/
 .uni-of-edinburgh {
   background-color: #E3BABC;
@@ -358,7 +376,7 @@ input[type=text], select, textarea {
 .img-circular {
   width: 250px;
   height: 250px;
-  margin: 40px;
+  margin: 40px 40px 0px 0px;
 }
 
 .img-profile {

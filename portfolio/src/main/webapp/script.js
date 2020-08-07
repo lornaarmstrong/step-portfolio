@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-window.onload = loadPage;
+//window.onload = loadPage;
 
 function loadPage() {
   getChartAPI();
@@ -70,6 +70,15 @@ function getComments(){
 function deleteComments() {
   const request = new Request('/delete-all-data', {method: 'POST'}); 
   fetch(request).then(getComments());
+}
+
+function checkPassword() {
+  var adminInput = document.getElementById("admin-password").value;
+  if (adminInput == "azby88") {
+    document.getElementById("removeAllComments").style.visibility = "visible";
+  } else {
+    document.getElementById("removeAllComments").style.visibility = "hidden";
+  }
 }
 
 // CHARTS

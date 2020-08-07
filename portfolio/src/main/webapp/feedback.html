@@ -70,9 +70,22 @@
         <option value="-1">All</option>
       </select>
       </div>
+      <!-- Container for the user comments to be displayed in -->
+      <div id="comment-container"></div>
+
+      <div class="admin-area">
+        <h3>ADMIN</h3>
+        <p>This section is for admin only. Please enter the admin
+            key to view.
+        </p>
+        <form>
+          <input id="admin-password" type="password"></input>
+          <button onclick="checkPassword()" type="button">Submit</button>
+        </form>
+
       <button id="removeAllComments" class = "commentButton buttonRed" 
       onclick="deleteComments()">Delete All Comments</button>
-        <div id="comment-container"></div>
+      </div>
       <br>
       </div>
      
