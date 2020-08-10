@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//window.onload = loadPage;
+window.onload = loadPage;
 
 function loadPage() {
   getChartAPI();
@@ -20,11 +20,11 @@ function loadPage() {
 }
 
 async function getChartAPI() {
-  var APIScript = document.createElement("script");
+  const APIScript = document.createElement("script");
   APIScript.type = "text/javascript";
   APIScript.src = "https://maps.googleapis.com/maps/api/js?key="+APIkey.APIKey;
-  var chartAPIFile = document.getElementById("APIFile");
-  var head = document.getElementsByTagName("header")[0];
+  const chartAPIFile = document.getElementById("APIFile");
+  const head = document.getElementsByTagName("header")[0];
   head.insertBefore(APIScript, chartAPIFile.nextSibling);
 }
 

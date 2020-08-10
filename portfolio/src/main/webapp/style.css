@@ -16,23 +16,33 @@ body {
 }
 
 h1 {
-  padding-top: 20px;
+  padding-top: 80px;
   padding-right: 20px;
-  padding-bottom: 20px;
   text-align: center;
-  background-color: lightgray;
+  font-size: 40px;
+  background-color: white;
   font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
+  margin:10px;
 }
 
 h2 {
   margin: 0px;
-  padding: 0px;
+  padding-bottom: 5px;
   text-align: center;
-  font-size: 18px;
-  font-weight: 100;
-  background-color: lightgray;
+  font-size: 24px;
+  font-weight: 600;
+  background-color: white;
+  color: #aab0b1;
   font-family: "Times New Roman", Times, serif;
+}
+
+.tagline {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #27807f;
+  padding-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 5px;
 }
 
 h3 {
@@ -134,13 +144,13 @@ footer {
 }
 
 .banner {
-    text-align: center;
-    padding: 10px 0 10px 0;
-    margin: 5px 0 5px 0;
-    background-color: #27807F;
-    color: white;
-    font-style: bold;
-    font-size: 16px;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin: 5px 0 5px 0;
+  background-color: #27807F;
+  color: white;
+  font-style: bold;
+  font-size: 16px;
 }
 
 /*Formatting for main text in each section*/
@@ -151,7 +161,7 @@ footer {
   display: inline-block;
 }
 
-.education, .feedback {
+.education, .feedback, .drawings {
   margin: 5px;
   padding: 10px;
   width: 96%;
@@ -391,4 +401,69 @@ input[type=text], select, textarea {
 
 .g-recaptcha-error {
   color: red;
+}
+
+/*Drawings Section*/
+.sketch-title {
+  width: 96%;
+}
+
+.the-colosseum, .barnard-castle, .marchmont-road {
+  width: 250px;
+}
+
+.marchmont-road {
+  padding-left: 20px;
+}
+
+.edi-castle {
+  width: 270px;
+}
+
+.butter-market {
+  width: 180px;
+  padding: 10px;
+}
+
+.bowes-museum, .tower-bridge {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.red-phone-box {
+  width: 180px;
+}
+
+.forth-bridge {
+  width: 450px;
+  padding: 20px;
+}
+
+.scott-monument, .london-eye {
+  width: 200px;
+}
+
+.london-eye {
+  padding-left: 0px;
+  padding-bottom: 30px;
+}
+
+.buckingham-palace {
+  width: 400px;
+  padding: 10px 0px 0px 0px;
+}
+
+.tower-of-london {
+  width: 260px;
+}
+
+/*Info box underneath Sketches */
+.extra-info {
+  width: 94%;
+  text-align: center;
+  display: block;
+  padding: 10px;
+  border:#CCC dashed;
+  margin: 10px;
 }
