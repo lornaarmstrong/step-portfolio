@@ -12,23 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-window.onload = loadPage;
-
-function loadPage() {
-  getComments();
-}
-
+/* Submit the user form containing the comment*/
 function submitUserForm() {
-    var response = grecaptcha.getResponse();
-    if(response.length == 0) {
-        document.getElementById("g-recaptcha-error").innerHTML = "This field is required";
-        return false;
-    }
-    return true;
+  var response = grecaptcha.getResponse();
+  if(response.length == 0) {
+    document.getElementById("g-recaptcha-error").innerHTML = "This field is required.";
+    return false;
+  }
+  return true;
 }
 
 function verifyCaptcha() {
-    document.getElementById("g-recaptcha-error").innerHTML = "";
+  document.getElementById("g-recaptcha-error").innerHTML = "";
 }
 
 function getComments(){
@@ -37,7 +32,7 @@ function getComments(){
   fetch(request).then(response => response.json()).then((messages) => {
     const commentContainer = document.getElementById("comment-container");
     var commentHTML = "";
-    if (messages.length == 0){
+    if (messages.length == 0 && quantity.value != 0){
        commentHTML = commentHTML.concat("<p>There are no comments yet. Why not post one yourself?</p>");
     } else {
       for (var i = 0; i < messages.length; i++){
@@ -57,33 +52,41 @@ function deleteComments() {
   fetch(request).then(getComments());
 }
 
-// CHARTS
-google.charts.load('current', {'packages':['geochart'],
-'mapsApiKey': 'AIzaSyCP-FXbugyYntkSsiE4hQqIAEKh4Li8_ow'
-});
-  google.charts.setOnLoadCallback(drawRegionsMap);
+/* Check entered admin password is correct */
+function checkPassword() {
+  var adminInput = document.getElementById("admin-password").value;
+  adminPassword = configKeys.adminKey;
+  if (adminInput == adminPassword) {
+    document.getElementById("removeAllComments").style.visibility = "visible";
+  } else {
+    document.getElementById("removeAllComments").style.visibility = "hidden";
+  }
+}
 
-  function drawRegionsMap() {
+/* Draw a chart showing educational institutes on a map */
+google.charts.load('current', {'packages':['geochart'],'mapsApiKey': configKeys.chartAPIkey});
+google.charts.setOnLoadCallback(drawRegionsMap);
 
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Country'); 
-    data.addColumn('number', 'Value');
-    data.addColumn('number', 'Size');
-    data.addColumn({type:'string', role:'tooltip'});
+function drawRegionsMap() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Country'); 
+  data.addColumn('number', 'Value');
+  data.addColumn('number', 'Size');
+  data.addColumn({type:'string', role:'tooltip'});
 
-    data.addRows([
-      ["Edinburgh", 1, 70, "University of Edinburgh"],
-      ["Darlington", 2, 70, "Queen Elizabeth Sixth Form College"],
-      ["Staindrop", 3, 70, "Staindrop Academy"]
-    ]);
+  data.addRows([
+    ["Edinburgh", 1, 70, "University of Edinburgh"],
+    ["Darlington", 2, 70, "Queen Elizabeth Sixth Form College"],
+    ["Staindrop", 3, 70, "Staindrop Academy"]
+  ]);
 
-    var options = {
-        region: 'GB',
-        displayMode: 'markers',
-        colorAxis: {colors: ['#b85357', '#8774ab', '#327fc7']},
-        legend: 'none'
-    };
+  var options = {
+    region: 'GB',
+    displayMode: 'markers',
+    colorAxis: {colors: ['#b85357', '#8774ab', '#327fc7']},
+    legend: 'none'
+  };
 
-    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-    chart.draw(data, options);
+  var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+  chart.draw(data, options);
 }
