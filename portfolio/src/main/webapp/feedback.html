@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title>Feedback - Lorna Armstrong</title>
     <link rel="stylesheet" href="style.css">
-    <script id="APIFile" src="APIkey.js" type="text/javascript"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src='config.js'></script> <!-- contains the API keys and the admin passcode-->
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
     <div id="content">
+      <!--Top of Page Title & Info -->
       <h1>Lorna Armstrong</h1>
       <h2><i>- Computer Science Undergraduate -</i></h2>
       <p class="tagline">ambition, creativity & life-long learning</p>
@@ -40,10 +41,13 @@
             <input type="text" name="userLastName" placeholder="Your surname..."><br><br>
             <label class="label" >Please leave a comment:</label><br><br>
             <textarea rows="10" cols="50" name="userMessage" placeholder="Please leave some feedback.."></textarea><br>
+
             <!--Recaptcha section-->
-            <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq" 
+            <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq"
             data-callback="verifyCaptcha"></div>
             <div id="g-recaptcha-error"></div>
+
+            <!-- Submit Button -->
             <button id="submitComment" class = "comment-submit-button" type="input">Submit</button>
           </div>
         </form>
@@ -52,6 +56,8 @@
       <div class="view-comments-box">
         <h3>View Comments</h3>
         <p>How many comments do you want to see?</p>
+
+        <!--Select the Number of Comments to View -->
         <select name="commentCount" id="commentCount" onchange="getComments()">
           <option value="0">-</option>
           <option value="1">1</option>
@@ -70,10 +76,13 @@
         <p>This section is for admin only. Please enter the admin
           key to view.
         </p>
+        
+        <!-- Enter Admin Password and Check-->
         <form>
           <input id="admin-password" type="password"></input>
           <button onclick="checkPassword()" type="button">Submit</button>
         </form>
+
         <button id="removeAllComments" class = "commentButton buttonRed" 
           onclick="deleteComments()">Delete All Comments</button>
       </div>
