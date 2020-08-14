@@ -5,23 +5,21 @@
     <title>Education - Lorna Armstrong</title>
     <link rel="stylesheet" href="style.css">
     <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
-    <!--import ??? key.js -->
-    <!-- put key.js file in webapp -->
-    <script type="text/javascript" 
-      src="//maps.googleapis.com/maps/api/js?key=AIzaSyCP-FXbugyYntkSsiE4hQqIAEKh4Li8_ow" 
-      async="" defer="defer"></script>
+    <script src='config.js'></script> <!-- contains the API keys and the admin passcode-->
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
       <h1>Lorna Armstrong</h1>
-      <h2><i>Computer Science Undergraduate</i></h2>
+            <h2><i>- Computer Science Undergraduate -</i></h2>
+      <p class="tagline">ambition, creativity & life-long learning</p>
       <div class="banner">EDUCATION</div>
 
       <!-- Navigation Bar -->
       <div class="top-navigation-bar">
         <a href="index.html">Home</a>
         <a class="active" href="education.html">Education</a>
+        <a href="drawings.html">Drawings</a>
         <a href="feedback.html">Feedback</a>
       </div>
 
@@ -32,13 +30,16 @@
            attend. As you can see, I went to school and college in England, and I now study in
            Scotland for my university degree.
         </p>
+
+        <!-- Chart displaying map of educational institutes -->
         <h3>Map</h3>
         <div id="regions_div"></div>
+        
       </section>
 
-      <img src= "/images/staindrop-logo.jpeg" class="img-circular left-content" 
-        alt="Staindrop Academy Logo">
       <div class="staindrop school-content">
+          <img src= "/images/staindrop-logo.jpeg" class="img-circular left-content" 
+            alt="Staindrop Academy Logo">
           <h4>Staindrop Academy</h4>
           <h5>SEP 2011 - JUNE 2016</h5>
           <p>I attended Staindrop Academy (<i>also called Staindrop School - An Academy</i>),
@@ -49,11 +50,13 @@
           certainly wasn't my favourite!), from boxing to ballet, football to cross country. I was
           Sports Captain for my school house, Deputy Head Girl, Prefect and silver DofE award holder.
           </p>
+          <a href="http://staindropacademy.com/" target="_blank">
+          <button class="education-button">Visit the Website</button></a>
       </div>
     
-      <img src= "/images/qeliz-logo.jpeg" class="img-circular left-content" 
-        alt="QE Sixth Form logo">
       <div class="queen-elizabeth school-content">
+          <img src= "/images/qeliz-logo.jpeg" class="img-circular left-content" 
+            alt="QE Sixth Form logo">
           <h4>Queen Elizabeth Sixth Form College</h4>
           <h5>SEP 2016 - JUNE 2018</h5>
           <p>To study for my A Levels, I attended QE Sixth Form College in Darlington. It is a 
@@ -63,11 +66,13 @@
               In regards to extra-curricular activites, I was a member of Russian and Latin lunch clubs,
               I was a Student Ambassador, and part of a team of 4 students working on French Mentoring program.
           </p>
+          <a href="https://www.qeliz.ac.uk/" target="_blank">
+          <button class="education-button">Visit the Website</button></a>
       </div>
 
-      <img src= "/images/edinburgh-uni-logo.jpeg" class="img-circular left-content" 
-        alt="University of Edinburgh Logo">
       <div class="uni-of-edinburgh school-content">
+          <img src= "/images/edinburgh-uni-logo.jpeg" class="img-circular left-content" 
+          alt="University of Edinburgh Logo">
           <h4>University of Edinburgh</h4>
           <h5>SEP 2018 - CURRENT</h5>
            <p>I am currently studying as a Computer Science undergraduate, at the University
@@ -77,6 +82,8 @@
                also a member of Comp Soc, WomenInSTEM and Swing Dance societies. In addition, I spend one hour a
                week volunteering with a local Rainbow GirlGuide group.
            </p>
+           <a href="https://www.ed.ac.uk/" target="_blank">
+           <button class="education-button">Visit the Website</button></a>
       </div>
       <section class="education">
           <h3>What's Next?</h3>

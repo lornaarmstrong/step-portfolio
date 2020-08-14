@@ -5,27 +5,33 @@
     <title>Feedback - Lorna Armstrong</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src='config.js'></script> <!-- contains the API keys and the admin passcode-->
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="getComments()">
     <div id="content">
+      <!--Top of Page Title & Info -->
       <h1>Lorna Armstrong</h1>
-      <h2><i>Computer Science Undergraduate</i></h2>
+      <h2><i>- Computer Science Undergraduate -</i></h2>
+      <p class="tagline">ambition, creativity & life-long learning</p>
       <div class="banner">FEEDBACK</div>
 
       <!-- Navigation Bar -->
       <div class="top-navigation-bar">
         <a href="index.html">Home</a>
         <a href="education.html">Education</a>
+        <a href="drawings.html">Drawings</a>
         <a class="active" href="feedback.html">Feedback</a>
       </div>
+
       <section class="feedback">
         <h3>Feedback</h3>
         <p>Welcome to the Feedback section of my portfolio. Feel free to leave a comment
           below, to offer feedback, opinions or information about yourself!
-        </p> </section>
+        </p>
+      </section>
 
-        <div class="add-comment-box">
+      <div class="add-comment-box">
         <h3>Add a Comment</h3>
         <form action="/data" method="POST" onsubmit="return submitUserForm();">
           <div class="commentBox">
@@ -35,42 +41,53 @@
             <input type="text" name="userLastName" placeholder="Your surname..."><br><br>
             <label class="label" >Please leave a comment:</label><br><br>
             <textarea rows="10" cols="50" name="userMessage" placeholder="Please leave some feedback.."></textarea><br>
-            <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq" 
+
+            <!--Recaptcha section-->
+            <div class="g-recaptcha" data-sitekey="6LcMt7cZAAAAAJDTjb--jflhPTN74JJ1oyFaeUfq"
             data-callback="verifyCaptcha"></div>
             <div id="g-recaptcha-error"></div>
+
+            <!-- Submit Button -->
             <button id="submitComment" class = "comment-submit-button" type="input">Submit</button>
           </div>
         </form>
-        </div>
-
-    <!-- TODO (lornaarmstrong) Implement the language choice for comments
-       <div class="languages-comments-box">
-        <h3>View Comments</h3>
-        <p>How many comments do you want to see?</p>
-        <select name="languageChoice" id="languageChoice" onchange="getComments()">
-          <option value="ar">Arabic<option>
-          <option value="en">English</option>
-          <option value="fr">French<option>
-        </select>
-      </div> -->
+      </div>
 
       <div class="view-comments-box">
-      <h3>View Comments</h3>
-      <p>How many comments do you want to see?</p>
-      <select name="commentCount" id="commentCount" onchange="getComments()">
-        <option value="0">-</option>
-        <option value="1">1</option>
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50</option>
-        <option value="-1">All</option>
-      </select>
+        <h3>View Comments</h3>
+        <p>How many comments do you want to see?</p>
+
+        <!--Select the Number of Comments to View -->
+        <select name="commentCount" id="commentCount" onchange="getComments()">
+          <option value="0">-</option>
+          <option value="1">1</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="-1">All</option>
+        </select>
       </div>
-      <button id="removeAllComments" class = "commentButton buttonRed" 
-      onclick="deleteComments()">Delete All Comments</button>
-        <div id="comment-container"></div>
+
+      <!-- Container for the user comments to be displayed in -->
+      <div id="comment-container"></div>
+
+      <div class="admin-area">
+        <h3>ADMIN</h3>
+        <p>This section is for admin only. Please enter the admin
+          key to view.
+        </p>
+        
+        <!-- Enter Admin Password and Check-->
+        <form>
+          <input id="admin-password" type="password"></input>
+          <button onclick="checkPassword()" type="button">Submit</button>
+        </form>
+
+        <button id="removeAllComments" class = "commentButton buttonRed" 
+          onclick="deleteComments()">Delete All Comments</button>
       </div>
-     
+      <br>
+    
     </div>
     <footer><b>lornaarmstrong<b></footer>
   </body>

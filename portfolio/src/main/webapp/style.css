@@ -16,23 +16,33 @@ body {
 }
 
 h1 {
-  padding-top: 20px;
+  padding-top: 80px;
   padding-right: 20px;
-  padding-bottom: 20px;
   text-align: center;
-  background-color: lightgray;
+  font-size: 40px;
+  background-color: white;
   font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
+  margin:10px;
 }
 
 h2 {
   margin: 0px;
-  padding: 0px;
+  padding-bottom: 5px;
   text-align: center;
-  font-size: 18px;
-  font-weight: 100;
-  background-color: lightgray;
+  font-size: 24px;
+  font-weight: 600;
+  background-color: white;
+  color: #aab0b1;
   font-family: "Times New Roman", Times, serif;
+}
+
+.tagline {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #27807f;
+  padding-bottom: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 5px;
 }
 
 h3 {
@@ -102,6 +112,10 @@ footer {
   border-radius: 10px;
 }
 
+.commentButton {
+  visibility: hidden;
+}
+
 .buttonBlue {
   background-color: #0E76A8; 
   color: white;
@@ -117,18 +131,26 @@ footer {
   color: white;
 }
 
+.education-button {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin: 0px 100px 0px 80px;
+  border-radius: 10px;
+}
+
 .img-nonprofile {
   float: right;
 }
 
 .banner {
-    text-align: center;
-    padding: 10px 0 10px 0;
-    margin: 5px 0 5px 0;
-    background-color: #27807F;
-    color: white;
-    font-style: bold;
-    font-size: 16px;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  margin: 5px 0 5px 0;
+  background-color: #27807F;
+  color: white;
+  font-style: bold;
+  font-size: 16px;
 }
 
 /*Formatting for main text in each section*/
@@ -139,7 +161,7 @@ footer {
   display: inline-block;
 }
 
-.education, .feedback {
+.education, .feedback, .drawings {
   margin: 5px;
   padding: 10px;
   width: 96%;
@@ -288,6 +310,8 @@ input[type=text], select, textarea {
 #user-comment {
   background-color: #CCC;
   padding: 0px 15px;
+  margin: 10px 30px 10px 200px;
+  border-radius: 10px;
 }
 
 #commentor-name {
@@ -306,11 +330,12 @@ input[type=text], select, textarea {
 
 .comment-section {
   margin-bottom: 75px;
-  width: 100%;
+  width: 94%;
 }
 
 .comments {
   position: center;
+  border:10px;
 }
 
 .label {
@@ -318,6 +343,12 @@ input[type=text], select, textarea {
   font: bold;
   padding: 5px;
   margin: 2px;
+}
+
+.admin-area {
+  border: 2px black dotted;
+  padding: 10px;
+  margin: 20px;
 }
 
 /*Education page*/
@@ -355,7 +386,7 @@ input[type=text], select, textarea {
 .img-circular {
   width: 250px;
   height: 250px;
-  margin: 40px;
+  margin: 40px 40px 0px 0px;
 }
 
 .img-profile {
@@ -365,6 +396,74 @@ input[type=text], select, textarea {
 }
 
 #regions_div {
-  border: dotted 3px #000000;
-  width: 95%
+  width: 96%;
+}
+
+.g-recaptcha-error {
+  color: red;
+}
+
+/*Drawings Section*/
+.sketch-title {
+  width: 96%;
+}
+
+.the-colosseum, .barnard-castle, .marchmont-road {
+  width: 250px;
+}
+
+.marchmont-road {
+  padding-left: 20px;
+}
+
+.edi-castle {
+  width: 270px;
+}
+
+.butter-market {
+  width: 180px;
+  padding: 10px;
+}
+
+.bowes-museum, .tower-bridge {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.red-phone-box {
+  width: 180px;
+}
+
+.forth-bridge {
+  width: 450px;
+  padding: 20px;
+}
+
+.scott-monument, .london-eye {
+  width: 200px;
+}
+
+.london-eye {
+  padding-left: 0px;
+  padding-bottom: 30px;
+}
+
+.buckingham-palace {
+  width: 400px;
+  padding: 10px 0px 0px 0px;
+}
+
+.tower-of-london {
+  width: 260px;
+}
+
+/*Info box underneath Sketches */
+.extra-info {
+  width: 94%;
+  text-align: center;
+  display: block;
+  padding: 10px;
+  border:#CCC dashed;
+  margin: 10px;
 }

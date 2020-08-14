@@ -44,7 +44,6 @@ public final class FindMeetingQuery {
     /* loop through all events attended by this meeting attendees
     to see if any of the times would clash
     */
-
     // if there are no attendee-clash meetings, then the whole day is available
     if (clashAttendeeEvents.size() == 0) {
         if (meetingDuration <= TimeRange.WHOLE_DAY.duration()) {
@@ -79,6 +78,7 @@ public final class FindMeetingQuery {
     for (int i = 0; i < clashAttendeeEvents.size() - 1; i++) {
       TimeRange currentEvent = clashAttendeeEvents.get(i);
       TimeRange followingEvent = clashAttendeeEvents.get(i+1);
+
 
       if (!(currentEvent.overlaps(followingEvent))) {
          // case 1
