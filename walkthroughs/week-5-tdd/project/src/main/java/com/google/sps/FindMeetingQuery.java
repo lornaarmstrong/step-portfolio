@@ -37,7 +37,7 @@ public final class FindMeetingQuery {
         if (eventAttendees.contains(attendee)) {
           clashAttendeeEvents.add(event.getWhen());
           break;
-          }
+        }
       }
     }
 
@@ -70,8 +70,7 @@ public final class FindMeetingQuery {
     if (endTime.duration() >= request.getDuration()) {  
        proposedTimeRanges.add(endTime);
     }
-
-
+    
     // For multiple events, there are the following cases:
     // case 1: the events don't overlap and aren't contained
     // case 2: the events overlap
@@ -82,7 +81,7 @@ public final class FindMeetingQuery {
       TimeRange followingEvent = clashAttendeeEvents.get(i+1);
 
       if (!(currentEvent.overlaps(followingEvent))) {
-                // case 1
+         // case 1
         TimeRange gap = TimeRange.fromStartEnd(currentEvent.end(), followingEvent.start(), false);
         long possibleDuration = gap.duration();
         if (meetingDuration <= possibleDuration) {
@@ -99,6 +98,5 @@ public final class FindMeetingQuery {
 
     Collections.sort(proposedTimeRanges, TimeRange.ORDER_BY_START);
     return(proposedTimeRanges);
-  
   }
 }
