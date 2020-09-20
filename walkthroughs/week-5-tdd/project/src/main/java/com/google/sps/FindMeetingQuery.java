@@ -19,9 +19,6 @@ import java.util.*;
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
 
-    //input: events collection and request for meeting
-    //output: collection of all times the proposed meeting could be held at
-
     Collection<String> attendeesList = request.getAttendees();
     long meetingDuration = request.getDuration();
     List<TimeRange> proposedTimeRanges = new ArrayList<TimeRange>();
@@ -39,6 +36,7 @@ public final class FindMeetingQuery {
       for (String attendee : attendeesList) {
         if (eventAttendees.contains(attendee)) {
           clashAttendeeEvents.add(event.getWhen());
+          break;
         }
       }
     }
@@ -46,7 +44,6 @@ public final class FindMeetingQuery {
     /* loop through all events attended by this meeting attendees
     to see if any of the times would clash
     */
-    
     // if there are no attendee-clash meetings, then the whole day is available
     if (clashAttendeeEvents.size() == 0) {
         if (meetingDuration <= TimeRange.WHOLE_DAY.duration()) {
@@ -60,21 +57,17 @@ public final class FindMeetingQuery {
     TimeRange startTime = TimeRange.fromStartEnd(startDay, clashAttendeeEvents.get(0).start(), false);
 
     // only add the time if there's enough duration for the requested meeting
-    if (startTime.duration() >= request.getDuration() || Objects.equals(startTime.duration(), request.getDuration())){
-      proposedTimeRanges.add(startTime);
+    if (startTime.duration() >= request.getDuration()){
+       proposedTimeRanges.add(startTime);
     }   
 
     // order by end time.
     Collections.sort(clashAttendeeEvents, TimeRange.ORDER_BY_END);
     TimeRange endTime = TimeRange.fromStartEnd(
         clashAttendeeEvents.get(clashAttendeeEvents.size()-1).end(), endDay, true);
-        
-    if (!(endTime.duration() < request.getDuration())) {
-      proposedTimeRanges.add(endTime);
-    }
 
-    if (clashAttendeeEvents.size() == 1) {
-      return proposedTimeRanges;
+    if (endTime.duration() >= request.getDuration()) {  
+       proposedTimeRanges.add(endTime);
     }
     
     // For multiple events, there are the following cases:
@@ -86,14 +79,15 @@ public final class FindMeetingQuery {
       TimeRange currentEvent = clashAttendeeEvents.get(i);
       TimeRange followingEvent = clashAttendeeEvents.get(i+1);
 
-      if (!(currentEvent.contains(followingEvent)) && !(currentEvent.overlaps(followingEvent))) {
-        // case 1
+
+      if (!(currentEvent.overlaps(followingEvent))) {
+         // case 1
         TimeRange gap = TimeRange.fromStartEnd(currentEvent.end(), followingEvent.start(), false);
         long possibleDuration = gap.duration();
         if (meetingDuration <= possibleDuration) {
           proposedTimeRanges.add(gap);
         }
-      } else if (!currentEvent.contains(followingEvent) && currentEvent.overlaps(followingEvent)) {
+      } else if (currentEvent.overlaps(followingEvent)) {
         // case 2
         // do nothing - not an eligible time
       } else if (currentEvent.contains(followingEvent) && !currentEvent.overlaps(followingEvent)) {
